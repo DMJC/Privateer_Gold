@@ -259,8 +259,8 @@ def _AddFGToFactionList(fgname,faction):
 def _RemoveFGFromFactionList (fgname,faction):
     key = MakeFactionKey(faction)
     leg=Director.getSaveStringLength(ccp,key)
+    print ("Flight Group Name: ", fgname)
     for index in range(leg):
-        print ("Flight Group Name: ", fgname)
         if Director.getSaveString(ccp,key,index) == fgname:
             Director.eraseSaveString(ccp,key,index)
             return 1
