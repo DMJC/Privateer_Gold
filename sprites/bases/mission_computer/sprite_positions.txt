@@ -1,0 +1,33 @@
+sprite buttons:
+
+last: 53, 148   (32x32)
+next: 92, 148   (32x32)
+accept: 128, 154 (64x16)
+
+
+hotspots:
+
+last: 53, 148 (32x32)
+next: 92, 148 (32x32)
+accept: 130, 150 (40x25) -- DIFFERENT!
+
+logon: 190, 150 (70x30)
+
+
+
+mission text: 58,33 (148x91)
+load/save: 218,46 (37x78)
+
+
+new sprites - texture cuts:
+
+yellow_blink: 
+texture: 256x64 (two frames, 256x32 each)
+cut: (0,0)-(256,32)
+
+buttons:
+texture: 256x64 (all three buttons)
+cut: (95,298)-(+256,+64)
+last: (0,0)-(80,64) local texture coords
+next: (80,0)-(160,64) local tex coords
+accept: (160,0)-(256,64) local tex coords

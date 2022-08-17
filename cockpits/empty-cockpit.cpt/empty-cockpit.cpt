@@ -1,0 +1,7 @@
+<Cockpit front="splash_loading75.spr" ViewOffset="0" CockpitOffset="0">
+	
+<Crosshairs file="crosshairs.spr" xcent=".0001" ycent=".276" height=".55"/>
+	
+<Radar file="" xcent="-.7979" ycent="-.2122" width=".209" height=".3359"/>
+	
+</Cockpit>

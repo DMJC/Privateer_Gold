@@ -1,0 +1,44 @@
+<system name="Troy" background="backgrounds/plasma_galaxy" nearstars="0" stars="0" starspread="0"  y="0" z="0" x="0">
+<Light>
+<ambient red=".25" green=".25" blue=".25"/>
+<diffuse red="1" green="1" blue="1"/>
+<specular red="1" green="1" blue="1"/>
+</Light>
+
+<Planet name="Troy" file="stars/sun.png" radius="4000000" y="-14594814.000000" z="00.00" x="14594814.000000"  Red="0.6" Green="0.6" Blue="1" ReflectNoLight="true" light="0"/>
+
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="1" blue="1"/>
+<specular red="1" green="1" blue="1"/>
+</Light>
+
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".000000002"/>
+</Light>	
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".0000001"/>
+</Light>	
+        <planet name="Jump_To_Pyrenees" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="8000" y="14500" day="240" destination="Gemini/Pyrenees"/>
+        <unit name= "Achilles"  file="mining_base" faction="mining" x="17500" y="000"/>
+        <planet name="Jump_To_Pender's_Star" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="8200" y="-14000" day="240" destination="Gemini/Penders_Star"/>
+        <unit name= "Hector"  file="mining_base" faction="mining" x="-14500" y="-22000"/>
+
+        <planet name="Jump_To_Regallis" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="-13000" y="-7500" day="240" destination="Gemini/Regallis"/>
+
+        <planet name="Helen" file="planets/agricultural.png" radius="1200" gravity="20" x="-14000" y="10500" day="300">
+		<Atmosphere file="clouds.png" alpha="SRCALPHA INVSRCALPHA" radius="1211"/>
+<!--	<Fog>
+		<FogElement file="atmXatm.bfxm" ScaleAtmosphereHeight="1.0"  red="0.900000" blue="0.900000" green="1.000000" alpha="1.000000" dired="0.900000" diblue="0.900000" digreen="1.000000" dialpha="1.000000" concavity=".3" focus=".6" minalpha="0" maxalpha="0.7"/>
+		<FogElement file="atmXhalo.bfxm" ScaleAtmosphereHeight="1.0"  red="0.900000" blue="0.900000" green="1.000000" alpha="1.000000" dired="0.900000" diblue="0.900000" digreen="1.000000" dialpha="1.000000" concavity="1" focus=".6" minalpha="0" maxalpha="0.7"/>
+	</Fog> -->
+        </planet>
+        <planet name="Jump_To_War" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="10" y="16000" day="240" destination="Gemini/War"/>
+        <planet name="Nav_8" file="invisible.png" alpha="ONE ONE" radius="256" gravity="0" x="4000" y="4000" day="240" />
+</system>

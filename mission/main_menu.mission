@@ -1,0 +1,42 @@
+<mission>
+	<settings>
+		<origin  planet="earth" x="0000" y="100" z="000.0"/>
+	</settings>
+
+	<variables>
+		<var name="credits" value="3000"/>
+		<var name="defaultplayer" value="blue"/>
+		<var name="mission_name" value="Privateer Main Menu" />
+		<var name="difficulty" value=".05"/><!--good starting difficulty here-->
+		<var name="system" value="Special/Empty" />
+		<var name="description" value="Welcome to the Wing Commander: Privateer mod of Vega Strike." />
+		<var name="savegame" value="main_menu" />
+	</variables>
+	
+    <flightgroups>
+		<!-- need at least one, to avoid messing with the engine -->
+		<flightgroup name="Privateer" faction="privateer" type="dumbfire" ainame="default" waves="1" nr_ships="1">
+			<pos x="18068.451" y="-60.189" z="-371.339" />  
+			<rot x="180.0" y="180.0" z="180.0"/>
+			<order order="tmptarget" target="omikron"/>
+			<order priority="0" order="superiority" target="enemy"/>
+			<order priority="1" order="bomber" target="omikron"/>
+			<order priority="2" order="escort" target="blue"/>
+		</flightgroup>
+    </flightgroups>
+	
+	<python>
+import Base
+import Director
+#class NullMission (Director.Mission):
+#	def __init__(self):
+#		Director.Mission.__init__(self)
+Base.LoadBaseInterface("main_menu")
+#my_obj=NullMission()
+
+from privateer import privateer
+my_obj=privateer(3000,5000,500,3,2,.6,.25,.1,850000,2000)
+
+	</python>
+
+</mission>

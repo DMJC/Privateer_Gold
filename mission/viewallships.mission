@@ -1,0 +1,50 @@
+<mission>
+    <variables>
+        <var name="mission_name" value="Privateer Model viewer - all ships" />
+        <var name="description" value="Model Viewer" />
+        <var name="system" value="Special/ModelView" />
+    </variables>
+    <flightgroups>
+	<flightgroup name="Test" faction="privateer" type="centurion" ainame="default" waves="1" nr_ships="1">
+	    <pos x="119990000" y="-9000000" z="-1099900000"/>
+            <rot x="180.0" y="180.0" z="180.0"/>
+        </flightgroup>
+    </flightgroups>
+    <python>
+# copied from VS modules/missions/balancer.py
+import VS
+import Director
+import launch
+from Vector import Add
+
+class balancer (Director.Mission):
+    loops=()
+    def __init__ (self, ships, num_ships=1, num_waves=1):
+        Director.Mission.__init__(self)
+        you = VS.getPlayer()
+        for i in range(len(ships)):
+            launch.launch(you.getFlightgroupName(), you.getFactionName(), ships[i], "ai_sitting_duck.py", num_ships, num_waves, Add(you.Position(),((i+1)*500,0,0)), '', False)
+            print(" ++ Balancer mission launching %s unit..."%ships[i])
+        print(" ++ Balancer mission launching the playground")
+
+    def Execute(self):
+        pass
+
+# by faction
+confed=["broadsword","gladius","paradigm","stiletto","talon"]
+bases=["mining_base","new_constantinople","perry","refinery"]
+kilrathi=["dralthi","dralthi2","gothri","kamekh","salthi"]
+steltek=["drone","steltek_fighter"]
+privateer=["centurion","galaxy","orion","tarsus"]
+civilian=["demon","drayman","drayman_luxury"]
+
+# by type
+bomber=["broadsword"]
+fighter=["centurion","demon","dralthi","dralthi2","gladius","gothri","orion","salthi","stiletto","talon","tarsus"]
+merchant=["drayman","drayman_luxury","galaxy"]
+other=["drone","steltek_fighter"]
+capships=["kamekh","paradigm"]
+
+my_obj=balancer(fighter+bomber+merchant+capships+other)
+    </python>
+</mission>

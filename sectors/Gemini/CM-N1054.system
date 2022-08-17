@@ -1,0 +1,37 @@
+<system name="CM-N1054" background="backgrounds/yellow" nearstars="500" stars="1000" starspread="150"  y="0" z="0" x="0">
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="0.894427190999916" blue="0.707106781186548"/>
+<specular red="1" green="0.8" blue="0.5"/>
+</Light>
+
+<Planet name="CM-N1054" file="stars/sun.png" radius="4000000" y="14594814.000000" z="00.00" x="-14594814.000000"  Red="1" Green="0.8" Blue="0.5" ReflectNoLight="true" light="0"/>
+
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="1" blue="1"/>
+<specular red="1" green="1" blue="1"/>
+</Light>
+
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".000000002"/>
+</Light>	
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".0000001"/>
+</Light>	
+
+        <planet name="Jump_To_Pyrenees" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="1500" day="240" destination="Gemini/Pyrenees" />
+
+        <Condition expression="asteroid_detail &lt; 1">
+            <asteroid name= "Jump_To_Pyrenees"  file="AFieldBaseThin" faction="neutral"   x="1500" day="-14000"   ></asteroid>         
+        </Condition>
+        <Condition expression="asteroid_detail &gt;= 1">
+            <unit difficulty=".03" name= "Jump_To_Pyrenees"  file="AFieldBaseThin" faction="neutral"   x="1500" day="-14000"   ></unit>         
+        </Condition>
+</system>

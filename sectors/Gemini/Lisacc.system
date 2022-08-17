@@ -1,0 +1,44 @@
+<system name="Lisacc" background="backgrounds/plasma_galaxy" nearstars="500" stars="1000" starspread="150"  y="0" z="0" x="0">
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="1" blue="1"/>
+<specular red="1" green="1" blue="1"/>
+</Light>
+
+<Planet name="Lisacc" file="stars/sun.png" radius="4000000" y="14594814.000000" z="00.00" x="-14594814.000000"  Red="1" Green="1" Blue="1" ReflectNoLight="true" light="0"/>
+
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="1" blue="1"/>
+<specular red="1" green="1" blue="1"/>
+</Light>
+
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".000000002"/>
+</Light>	
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".0000001"/>
+</Light>	
+        
+        <unit name= "Lisacc"  file="mining_base" faction="confed" x="-8800" y="-2500"/>
+        <planet name="Jump_To_Blockade_Point_Tango" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="11000" y="7500" day="240" destination="Gemini/Blockade_Point_Tango" />
+
+        <Condition expression="asteroid_detail &lt; 2">
+            <asteroid name= "Lisacc"  file="AFieldBasePriv" faction="neutral"   x="-8800" y="-2500" day="-14000"   ></asteroid>   
+            <asteroid name= "Jump_To_Blockade_Point_Tango"  file="AFieldBasePriv" faction="neutral"   x="11000" y="7500" day="-14000"   ></asteroid>    
+        </Condition>
+        <Condition expression="asteroid_detail &gt;= 2">
+            <unit difficulty=".03" name= "Lisacc"  file="Asteroid_Field" faction="neutral"   x="-8800" y="-2500" day="-14000"   ></unit>   
+            <unit difficulty=".03" name= "Jump_To_Blockade_Point_Tango"  file="Asteroid_Field" faction="neutral"   x="11000" y="7500" day="-14000"   ></unit>    
+        </Condition>
+
+<!--priv_009        <planet name="Jump_To_Tk'Tarak" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="1000" y="-1500" z="7400" day="240" destination="TrkPahn/TKTarak" /> priv_009-->
+<!--priv_009        <planet name="Jump_To_N'Der_Pak" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="-2000" y="-5500" z="9400" day="240" destination="TrkPahn/NDerPak" /> priv_009-->
+
+</system>

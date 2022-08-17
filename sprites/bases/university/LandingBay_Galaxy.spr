@@ -1,0 +1,5 @@
+bases/university/LandingBay_Galaxy.ani bases/university/LandingBay_Galaxy.ani
+1.94 1.94
+0 0
+1 1000 addressMode=clamp,mins=-0.75,maxs=1.25,mint=-1,maxt=1
+bases/university/LandingBay_Galaxy.png

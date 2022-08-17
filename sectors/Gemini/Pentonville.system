@@ -1,0 +1,37 @@
+<system name="Pentonville" background="backgrounds/yellow" nearstars="500" stars="1000" starspread="150"  y="0" z="0" x="0">
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="0.547722557505166" blue="0.316227766016838"/>
+<specular red="1" green="0.3" blue="0.1"/>
+</Light>
+
+<Planet name="Pentonville" file="stars/sun.png" radius="4000000" y="14594814.000000" z="00.00" x="-14594814.000000"  Red="1" Green="0.3" Blue="0.1" ReflectNoLight="true" light="0"/>
+
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="1" blue="1"/>
+<specular red="1" green="1" blue="1"/>
+</Light>
+
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".000000002"/>
+</Light>	
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".0000001"/>
+</Light>	
+        <unit name=""  file="mining_base" faction="pirate" x="-12500" y="-10500"/>
+        <planet name="Jump_To_119CE" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="11000" y="9500" day="240" destination="Gemini/119ce"  />
+        
+        <Condition expression="asteroid_detail &lt; 1">
+            <asteroid name="" file="AFieldBasePriv" faction="neutral"   x="-12500" y="-10500" day="-14000" ></asteroid>         
+        </Condition>
+        <Condition expression="asteroid_detail &gt;= 1">
+            <unit difficulty=".03" name=""  file="Asteroid_Field" faction="neutral"   x="-12500" y="-10500" day="-14000" ></unit>         
+        </Condition>
+</system>

@@ -1,0 +1,12 @@
+<Cockpit front="galaxy-cockpit-turret.spr" ViewOffset=".2857" CockpitOffset=".05">
+
+<Crosshairs file="crosshairs.spr"/>
+
+<Energy file="blasterpower.spr" xcent="0" ycent="-.6641" width="1" height=".3333"/> 
+
+<!--<leftVDU TextRows="10" TextCols="20" file="blank.spr" xcent="-.72" ycent="-1.735" width=".42" height=".36" />-->
+
+<VDU TextRows="10" TextCols="20" file="vdu.spr" xcent=".004" ycent="-.704" type="Target View TargetManifest Weapon"/>
+
+<!--<FPS file="radar.spr" xcent=".8" ycent=".7" width=".018" height=".036"/>-->
+</Cockpit>

@@ -1,0 +1,19 @@
+bases\repair_upgrade\x.ani bases\repair_upgrade\x.ani
+0.97 0.97
+0 0
+15 0.17 addressMode=clamp,interpolateTCoord,mins=0,maxs=1.0
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.976,maxt=0.024
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.905,maxt=0.095
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.794,maxt=0.206
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.655,maxt=0.345
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.500,maxt=0.500
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.345,maxt=0.655
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.206,maxt=0.794
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.095,maxt=0.905
+bases/repair_upgrade/shipupgrade_computer.png true mint=-0.024,maxt=0.976
+bases/repair_upgrade/shipupgrade_computer.png true mint=0.000,maxt=1.000
+bases/repair_upgrade/shipupgrade_computer.png true mint=0.000,maxt=1.000
+bases/repair_upgrade/shipupgrade_computer.png true mint=0.000,maxt=1.000
+bases/repair_upgrade/shipupgrade_computer.png true mint=0.000,maxt=1.000
+bases/repair_upgrade/shipupgrade_computer.png true mint=0.000,maxt=1.000
+bases/repair_upgrade/shipupgrade_computer.png true mint=0.000,maxt=1.000

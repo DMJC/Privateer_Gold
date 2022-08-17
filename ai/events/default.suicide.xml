@@ -1,0 +1,73 @@
+<AggressiveAI time="7">
+
+
+<!-- hull damage and shields low -->
+<hull max=".7" script="evade up down" time="5" timetointerrupt="3" priority="7"> 
+  <fshield max=".25" script="evade up down" time="1" timetointerrupt="0" priority="7">
+	<rand max=".33" script="evade up down" time=".5" timetointerrupt="0" priority="7"/>
+  </fshield>
+</hull>
+
+<hull max=".7" script="evade up down" time="4" timetointerrupt="5" priority="7"> 
+ <rand max=".33" script="evade up down" time=".5" timetointerrupt="0" priority="7">
+  <bshield max=".25" script="afterburn veer away" time="2" timetointerrupt="2" priority="7"> 
+  </bshield>
+ </rand>
+</hull>
+
+
+<hull max=".7" script="evade left right" time="4" timetointerrupt="3" priority="7"> 
+  <fshield max=".25" script="evade left right" time="1" timetointerrupt="0" priority="7">
+	<rand max=".8" script="evade left right" time=".5" timetointerrupt="0" priority="7"/>
+  </fshield>
+</hull>
+
+<hull max=".7" script="evade left right" time="4" timetointerrupt="5" priority="7"> 
+ <rand max=".8" script="evade left right" time=".5" timetointerrupt="0" priority="7">
+  <bshield max=".25" script="afterburn veer away" time="2" timetointerrupt="4" priority="7"> 
+  </bshield>
+ </rand>
+</hull>
+
+
+<hull max=".7" script="evade left right" time="5" timetointerrupt="2" priority="7"> 
+  <fshield max=".25" script="evade up down" time="1" timetointerrupt="7" priority="7">
+  </fshield>
+</hull>
+
+<hull max=".7" script="evade left right" time="4" timetointerrupt="5" priority="7"> 
+  <bshield max=".25" script="afterburn veer away" time="2" timetointerrupt="2" priority="7"> 
+ </bshield>
+</hull>
+<!-- end hull damage area -->
+
+
+
+<!-- far away rush in -->
+<meterdistance min="4500" script="afterburn turn towards" priority="5" time="1">
+</meterdistance>
+<!-- medium slow in -->
+<meterdistance min="1200" max="4500" script="turn towards itts" priority="5" time="1">
+</meterdistance>
+
+<!-- interrupts -->
+<meterdistance max="32" script="afterburn turn away" time="10" timetointerrupt="8" priority="6">
+	<rand max=".50" script="afterburn turn away" time="1.5" timetointerrupt="1" priority="6"/>
+</meterdistance>
+<meterdistance max="32" script="afterburn turn away" time="10" timetointerrupt="5" priority="6">
+	<rand max=".50" script="afterburn turn away" time=".5" timetointerrupt="1" priority="6"/>
+</meterdistance>
+
+<meterdistance max="32" script="face perpendicular fast" time="6" timetointerrupt="6" priority="6">
+</meterdistance>
+
+<!-- close behavior... 50% chance turn perp, 50% chance dive in -->
+<meterdistance max="1200" script="roll perpendicular fast" priority="5" timetointerrupt="30" time="30">
+    <rand max=".25" script="afterburn turn away" time="10" timetointerrupt="8" priority="5"/>
+</meterdistance>
+<meterdistance max="1200" script="face perpendicular fast" priority="5" timetointerrupt="20" time="20">
+    <rand max=".33" script="afterburn turn away" time="10" timetointerrupt="8" priority="5"/>
+</meterdistance>
+<meterdistance max="1200" script="turn towards itts" priority="4" time="8">
+
+</AggressiveAI>

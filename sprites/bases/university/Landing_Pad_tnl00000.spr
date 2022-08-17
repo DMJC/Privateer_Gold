@@ -1,0 +1,5 @@
+bases/university/tnl.ani/01.ani bases/university/tnl.ani/01.ani
+1.94 1.94
+0 0
+1 1000 addressMode=clamp,mins=-1.0,maxs=1.0,mint=-1.5,maxt=2.5
+bases/university/tnl.ani/01.png true

@@ -1,0 +1,44 @@
+<system name="Beta" background="backgrounds/beta" nearstars="500" stars="1000" starspread="150"  y="0" z="0" x="0">
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="1" blue="1"/>
+<specular red="1" green="1" blue="1"/>
+</Light>
+
+<Planet name="Beta" file="stars/sun.png" radius="4000000" y="14594814.000000" z="00.00" x="-14594814.000000"  Red="1" Green="1" Blue="1" ReflectNoLight="true" light="0"/>
+
+<Light>
+<ambient red="000.0" green="000.0" blue="000.0"/>
+<diffuse red="1" green="1" blue="1"/>
+<specular red="1" green="1" blue="1"/>
+</Light>
+
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green="1" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".000000002"/>
+</Light>	
+<Light>
+<ambient red="1" green=".1" blue="0"/>
+<!--<diffuse red="1" green=".7" blue="0"/>-->
+<!--<attenuated red=".00000001" blue=".00000015"/>-->
+<attenuated red="0" blue=".0000001"/>
+</Light>	
+        <planet name="Jump_To_Delta" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="-11500" y="-10500"  day="240" destination="Gemini/Delta"/>
+        <planet name="Nav_2" file="invisible.png" alpha="ONE ONE" radius="256" gravity="0" x="-12500" y="0" day="240" />
+        <planet name="Nav_3" file="invisible.png" alpha="ONE ONE" radius="256" gravity="0" x="5500" y="7000" day="240" />
+        <planet name="Nav_4" file="invisible.png" alpha="ONE ONE" radius="256" gravity="0" x="-3000" y="-17000" day="240" />
+        <planet name="Jump_To_Gamma" file="jump.ani" alpha="ONE ONE" radius="256" gravity="0" x="-14500" y="17500" day="240" destination="Gemini/Gamma"/>
+
+        <Condition expression="asteroid_detail &lt; 3">
+            <asteroid name= "Nav_2"  file="AFieldBasePriv" faction="neutral"   x="-12500" y="0" day="0"   ></asteroid>         
+            <asteroid name= "Nav_4"  file="AFieldBasePriv" faction="neutral"   x="-3000" y="-17000" day="-14000"   ></asteroid>      
+            <asteroid name= "Jump_To_Gamma"  file="AFieldBasePriv" faction="neutral"  x="-14500" y="17500" day="-14000"   ></asteroid>         
+        </Condition>
+        <Condition expression="asteroid_detail &gt;= 3">
+            <unit difficulty=".03" name= "Nav_2"  file="Asteroid_Field" faction="neutral"   x="-12500" y="0" day="0"   ></unit>         
+            <unit difficulty=".03" name= "Nav_4"  file="Asteroid_Field" faction="neutral"   x="-3000" y="-17000" day="-14000"   ></unit>      
+            <unit difficulty=".03" name= "Jump_To_Gamma"  file="Asteroid_Field" faction="neutral"  x="-14500" y="17500" day="-14000"   ></unit>         
+        </Condition>
+</system>

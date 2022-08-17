@@ -1,0 +1,5 @@
+pause.ani pause.ani
+2 2.6666
+0 0
+1 1000.0 addressMode=clamp,mins=-1.5,mint=-7.5,maxs=2.5,maxt=8.5
+pause.png true

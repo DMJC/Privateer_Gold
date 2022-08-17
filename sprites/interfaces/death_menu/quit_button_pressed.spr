@@ -1,0 +1,4 @@
+interfaces/death_menu/quit_button_pressed.ani 0
+1.94 1.94
+1 1000 mins=0,mint=0,maxs=1,maxt=0.5
+interfaces/death_menu/death_menu_buttons_pressed.png true

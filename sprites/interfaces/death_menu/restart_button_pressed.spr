@@ -1,0 +1,4 @@
+interfaces/death_menu/restart_button_pressed.ani 0
+1.94 1.94
+1 1000 mins=0,mint=0.5,maxs=1,maxt=1
+interfaces/death_menu/death_menu_buttons_pressed.png true

@@ -1,0 +1,13 @@
+<mission>
+	<variables>
+		<var name="mission_name" value="Privateer Model viewer" />
+		<var name="description" value="Model Viewer" />
+		<var name="system" value="Special/ModelView" />
+	</variables>
+	<flightgroups>
+		<!-- need at least one, to avoid messing with the engine -->
+		<flightgroup name="Test" faction="privateer" type="kamekh" ainame="default" waves="1" nr_ships="1">
+			<pos x="119990000" y="-9000000" z="-1099900000"/>
+		</flightgroup>
+	</flightgroups>
+</mission>

@@ -1,0 +1,14 @@
+bases/mission_computer/yellow_blink.ani bases/mission_computer/yellow_blink.ani
+0.776 0.1552
+-0.582 0.8924
+10 .2
+bases/mission_computer/yellow_blink.png true mins=0,mint=0,maxs=1,maxt=0.5
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1
+bases/mission_computer/yellow_blink.png true mins=0,mint=0.5,maxs=1,maxt=1

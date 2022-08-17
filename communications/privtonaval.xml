@@ -1,0 +1,107 @@
+<comm>
+	<node text="startingNode" relationship="0"><sound file="interface_computer.wav" sex="0"/> <sound file="interface_computer.wav" sex="1"/> <!-- node 0 (starting node: Don't link here)-->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+
+<!-- Starting Points -->
+	<node text="Go Navy." relationship="0.2"><sound file="interface_computer.wav" sex="0"/> <sound file="interface_computer.wav" sex="1"/> <!-- node 1-->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="Everything ship shape here." relationship="0.2"><sound file="interface_computer.wav" sex="0"/> <sound file="interface_computer.wav" sex="1"/> <!-- node 2-->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="Never mind " relationship="0.2"><sound file="interface_computer.wav" sex="0"/> <sound file="interface_computer.wav" sex="1"/> <!-- node 3-->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+<!-- End of Starting Points -->
+	<node text="Undocked" relationship="0">
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="Dock failed" relationship="0">
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="Dock begun" relationship="0">
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>		
+	<node text="Landing Failed (not allowed)" relationship="0">
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>		
+	<node text="Dock request successful" relationship="0">
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>		
+	<node text="No." relationship="0">
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>		
+	<node text="Yes." relationship="0">
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>		
+	<node text="Prepare to be searched, maintain speed and course!" relationship="0"> <!-- maintain speed and course -->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="No contraband detected you may proceed." relationship="0"> <!-- no contraband detected you may proceed -->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="Contraband detected all units close and terminate!" relationship="0"> <!-- contraband detected! all units close and engage -->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="Your course is deviating. Maintain course!" relationship="0"> <!-- maintain your speed and course...DO NOT deviate -->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>	
+	<node text="Request Clearance To Land." relationship="0"> 
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>	
+	<node text="Target eliminated, command." relationship="0"> <!-- no contraband detected you may proceed -->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="Surrender" relationship="0"><!-- node 17 kill-->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="We are damaged" relationship="0"><!-- Critical damage -->
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+	<node text="*hit*" relationship="0">
+		<edge index="1"/>
+		<edge index="2"/>
+		<edge index="3"/>
+	</node>
+
+<!-- End of Built-in Conversations --> 
+</comm>
