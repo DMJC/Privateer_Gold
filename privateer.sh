@@ -1,4 +1,2 @@
 #!/bin/sh
-ARG=$1
-SETUPARG=${ARG:="nosetup"}
-CURPWD=$PWD
+./bin/vegastrike-engine -d.
