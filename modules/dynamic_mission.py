@@ -369,7 +369,7 @@ def generateCleansweepMission(path,numplanets,enemy):
     writemissionvars( { 'MISSION_TYPE' : mistype } )
 
 def generatePatrolMission (path,numplanets,enemy):
-    print ("PITTER PATTER")
+    print ("Generate Patrol Mission")
     dist=400
     minships=0
     fighterprob=vsrandom.random()*.75;
