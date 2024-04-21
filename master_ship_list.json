@@ -1,0 +1,23 @@
+[
+{
+ "file": "galaxy.begin",
+ "categoryname": "starships/Merchant/Medium",
+ "price": "150000",
+ "mass": "527",
+ "volume": "10000", "description": "A versatile merchant's vessel, the Galaxy is perfect for those with an entrepreneurial spirit.  She is by no means a military vessel, but a Galaxy can usually protect herself and the large amount of cargo she's able to carry."
+},
+{
+"file": "centurion.begin",
+ "categoryname": "starships/Hunter/Medium",
+ "price": "200000",
+ "mass": "40",
+ "volume": "1000", "description": "This is the workhorse of the mercenary community. The centurion is a heavy fighter with the ability to do almost any gun-for-hire work. The limited cargo hold can contain more than an overnight bag, but not by much.  This is a ship for those pilots who love to fly, but it won't make you a living on the trade circuit."
+},
+{
+"file": "orion.begin",
+ "categoryname": "starships/Hunter/Heavy",
+ "price": "75000",
+ "mass": "40",
+ "volume": "1000", "description": "The orion is perhaps the safest of all vehicles.  It can carry the most armor and shields of all ships in the Gemini sector (at the expense of its maneuverability). This is a sturdy ship, designed to last."
+}
+]

@@ -1,0 +1,443 @@
+[
+{
+"file": "shield_4_Level1",
+ "categoryname": "upgrades/Shield_Systems/Light",
+ "price": "10000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Shield_Systems>@upgrades/shields.png@A combination of magnetic and gravitic protective shields (level 1)."
+},
+{
+"file": "shield_4_Level2",
+ "categoryname": "upgrades/Shield_Systems/Medium",
+ "price": "30000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Shield_Systems>@upgrades/shields.png@A combination of magnetic and gravitic protective shields (level 2)."
+},
+{
+"file": "shield_4_Level3",
+ "categoryname": "upgrades/Shield_Systems/Medium",
+ "price": "50000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Shield_Systems>@upgrades/shields.png@A combination of magnetic and gravitic protective shields (level 3)."
+},
+{
+"file": "shield_4_Level4",
+ "categoryname": "upgrades/Shield_Systems/Heavy",
+ "price": "100000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Shield_Systems>@upgrades/shields.png@A combination of magnetic and gravitic protective shields (level 4)."
+},
+{
+"file": "shield_4_Level5",
+ "categoryname": "upgrades/Shield_Systems/Heavy",
+ "price": "150000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Shield_Systems>@upgrades/shields.png@A combination of magnetic and gravitic protective shields (level 5)."
+},
+{
+"file": "shield_4_Level6",
+ "categoryname": "upgrades/Shield_Systems/Heavy",
+ "price": "180000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Shield_Systems>@upgrades/shields.png@A combination of magnetic and gravitic protective shields (level 6)."
+},
+{
+"file": "shield_4_Level7",
+ "categoryname": "upgrades/Shield_Systems/Heavy",
+ "price": "200000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Shield_Systems>@upgrades/shields.png@A combination of magnetic and gravitic protective shields (level 7)."
+},
+{
+"file": "reactor_level_1",
+ "categoryname": "upgrades/Reactors/Light",
+ "price": "10000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Reactors>@upgrades/engine1.png@Standard reactor (level 1)."
+},
+{
+"file": "reactor_level_2",
+ "categoryname": "upgrades/Reactors/Medium",
+ "price": "30000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Reactors>@upgrades/engine2.png@Standard reactor (level 2)."
+},
+{
+"file": "reactor_level_3",
+ "categoryname": "upgrades/Reactors/Medium",
+ "price": "60000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Reactors>@upgrades/engine3.png@Standard reactor (level 3)."
+},
+{
+"file": "reactor_level_4",
+ "categoryname": "upgrades/Reactors/Medium",
+ "price": "100000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Reactors>@upgrades/engine4.png@Standard reactor (level 4)."
+},
+{
+"file": "reactor_level_5",
+ "categoryname": "upgrades/Reactors/Heavy",
+ "price": "150000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Reactors>@upgrades/engine5.png@Standard reactor (level 5)."
+},
+{
+"file": "reactor_level_6",
+ "categoryname": "upgrades/Reactors/Heavy",
+ "price": "250000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Reactors>@upgrades/engine6.png@Standard reactor (level 6)."
+},
+{
+"file": "reactor_level_7",
+ "categoryname": "upgrades/Reactors/Heavy",
+ "price": "350000",
+ "mass": "0.01",
+ "volume": "1", "description": "<upgrades/Reactors>@upgrades/engine7.png@Standard reactor (level 7)."
+},
+{
+"file": "missile_launcher",
+ "categoryname": "upgrades/Weapons/Launchers",
+ "price": "10000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/missile_launcher.png@For ships without missile hardpoints the missile launcher is a must.  Attached to the hull, it provides storage and launch capabilities for up to 10 missiles."
+},
+{
+"file": "dumbfire_ammo",
+ "categoryname": "upgrades/Ammunition",
+ "price": "20",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/dumbfire.png@Cheap and easily mass-produced, dumbfire missiles offer the most bang for your buck. They are a common sight in the backwaters, where natural talent and eye-hand coordination makes up for the scarcity of missile guidance components."
+},
+{
+"file": "heatseeker_ammo",
+ "categoryname": "upgrades/Ammunition",
+ "price": "35",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/heat_seeker.png@Heat seekers have a simple tracking mechanism. Insofar as it makes for quick missile locks and leaves more space for payload, this is good, but the same crude design makes the HS missile easy to divert."
+},
+{
+"file": "image_recognition_ammo",
+ "categoryname": "upgrades/Ammunition",
+ "price": "75",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/image_recognition.png@IR missiles are very effective, but they lock onto their targets by structural design, and for this reason you must take care when targeting ships employed by many factions."
+},
+{
+"file": "friend_or_foe_ammo",
+ "categoryname": "upgrades/Ammunition",
+ "price": "100",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/friend_or_foe.png@As long as your targeting ID system is working properly, the friend or foe missile is a deadly weapon. Though pilots early in their exploits may balk at the prices, veteran dogfighters will attest to the value of these highly e"
+},
+{
+"file": "torpedo_launcher",
+ "categoryname": "upgrades/Weapons/Launchers",
+ "price": "2000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/torpedo_launcher.png@Torpedo launchers can take only one type of ammunition, proton torpedoes, and can carry 10 of those. Though an expensive launcher for unguided missiles, proton torpedoes are the only missile type available to civilians that are powerful enough to let a small percentage of the blast get through shields and damage the hull directly."
+},
+{
+"file": "proton_torpedo_ammo",
+ "categoryname": "upgrades/Ammunition",
+ "price": "15",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/proton_torpedo.png@Gemini's proton torpedoes have about as much in common with confederation-issue ship killers as a Clydesdale has with a Kamekh. These are potent, unidirectional bombs: no time-consuming target lock required. Their high-yield allows some of the damage to get through shields, but it also makes them hard to use: be certain to be at some distance when they blow."
+},
+{
+"file": "laser",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Light",
+ "price": "1000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/laser.png@Though not a laser by any stretch of the imagination, due to its resemblance to the so called 'lasers' of classic games and movies of the previous millenium, the misnomer has stuck stronger than space rated epoxy. Cheap and utterly dep"
+},
+{
+"file": "mass_driver",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Light",
+ "price": "1500",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/massdriver.png@Long before the dawn of modern man, it was known to various hominids that hurling a blunt object was a reasonable way to deliver damage from a distance. Fittingly enough, the worlds of the Purist faction are among the chief manufa"
+},
+{
+"file": "meson_blaster",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Light",
+ "price": "2500",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/meson.png@The meson gun fires pulses of highly unstable quark-antiquark pairs. These extremely reactive conglomerations are destroyed upon impact, scattering the resulting individual particles to interact with the target at a sub-atomic level. S"
+},
+{
+"file": "neutron_gun",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Medium",
+ "price": "5000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/neutron.png@Bombard any atom with enough neutrons and you'll get a heavy, radioactive isotope that tends to spontaneously decay. Bombard a bunch of atoms with a bunch of neutrons and pretty soon you can force entire ships and stations to spontan"
+},
+{
+"file": "particle_cannon",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Medium",
+ "price": "10000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/particle.png@ Fires bundles of hyperaccelerated particles at targets."
+},
+{
+"file": "tachyon_cannon",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Heavy",
+ "price": "20000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/tachyon.png@Tachyons have interesting properties, like negative mass, increasing energy at decreasing velocities, and a mathematically imaginary relationship to the passage of time. We shouldn't have to tell you that anything this weird doesn't "
+},
+{
+"file": "ion",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Heavy",
+ "price": "40000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/ion.png@Anyone familiar with the laborious reaction equations of introductory chemistry should be able to appreciate the ion gun: it fires charges of highly charged anions that strip molecules from the hulls of their targets to form debris cloud"
+},
+{
+"file": "plasma_gun",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Heavy",
+ "price": "80000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/plasma.png@Plasma guns use induced magnetic containment to fire globs of superheated plasma at enemy vessels. No screwing around with exotic sub-atomic particles here: these weapons just burn and abrade their way through anything in your crossha"
+},
+{
+"file": "fusion_gun",
+ "categoryname": "upgrades/Weapons/Mounted_Guns_Heavy",
+ "price": "100000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/fusion.png@Fusion guns are cool ..."
+},
+{
+"file": "basic_armor",
+ "categoryname": "upgrades/Armor_Modification",
+ "price": "500",
+ "mass": "0.01",
+ "volume": "1", "description": "A basic armor equipped with all ships."
+},
+{
+"file": "plasteel",
+ "categoryname": "upgrades/Armor",
+ "price": "1000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/plasteel.png@Protective equivalent: 10cm durasteel. Plasteel is the least expensive armor and protects one from the equivalent of four direct laser hits."
+},
+{
+"file": "tungsten",
+ "categoryname": "upgrades/Armor",
+ "price": "1500",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/tungsten.png@Protective equivalent: 20 cm durasteel. Tungsten armor may cost a little more but can slop up to two torpedos.  Couriers in the Potter Quadrant working for bureaucrats probably don't need this level of protection. But a risk taker w"
+},
+{
+"file": "isometal",
+ "categoryname": "upgrades/Armor",
+ "price": "6000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/tungsten.png@Protective equivalent: 40 cm durasteel."
+},
+{
+"file": "add_ablative_hull_coating",
+ "categoryname": "upgrades/Hull_Upgrades",
+ "price": "12000",
+ "mass": "10",
+ "volume": "0", "description": "@upgrades/isometal.png@"
+},
+{
+"file": "add_sublimative_hull_coating",
+ "categoryname": "upgrades/Hull_Upgrades",
+ "price": "15000",
+ "mass": "15",
+ "volume": "1", "description": "@upgrades/isometal.png@"
+},
+{
+"file": "afterburner",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "3000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/afterburner.png@Afterburners more than double your speed and can mean the difference between life and death in asteroid fields and combat. As they are relatively inexpensive, I highly recommend buying afterburners, especially if you are flying o"
+},
+{
+"file": "add_cargo_expansion",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "5000",
+ "mass": "40",
+ "volume": "1", "description": "@upgrades/cargo_expansion.png@Volume: 25. Not every ship can support an internal cargo expansion, and they interfere with the inertial compensators, but these tend to pay for themselves quickly with the additional profits gained from extra car"
+},
+{
+"file": "add_cargo_volume",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "5000",
+ "mass": "40",
+ "volume": "1", "description": "@upgrades/cargo_expansion.png@Volume: 50. Not every ship can support an internal cargo expansion, and they interfere with the inertial compensators, but these tend to pay for themselves quickly with the additional profits gained from extra car"
+},
+{
+"file": "add_cargo_volume_galaxy",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "5000",
+ "mass": "40",
+ "volume": "1", "description": "@upgrades/cargo_expansion.png@Volume: 75. Not every ship can support an internal cargo expansion, and they interfere with the inertial compensators, but these tend to pay for themselves quickly with the additional profits gained from extra car"
+},
+{
+"file": "ecm_package_1",
+ "categoryname": "upgrades/ECM_Systems",
+ "price": "5000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/ecm1.png@Electronic CounterMeasures\\ ECM refers to a broad spectrum of techniques designed to defeat or spoof enemy sensors and communications."
+},
+{
+"file": "ecm_package_2",
+ "categoryname": "upgrades/ECM_Systems",
+ "price": "15000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/ecm2.png@Electronic CounterMeasures\\ ECM refers to a broad spectrum of techniques designed to defeat or spoof enemy sensors and communications."
+},
+{
+"file": "ecm_package_3",
+ "categoryname": "upgrades/ECM_Systems",
+ "price": "30000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/ecm3.png@Electronic CounterMeasures\\ ECM refers to a broad spectrum of techniques designed to defeat or spoof enemy sensors and communications."
+},
+{
+"file": "jump_drive",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "10000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/jumpdrive.png@This is undoubtedly one of your most important and expensive purchases. Unfortunately one manufacturer essentially has a monopoly on jump drives (A common problem with many frontier products).  The jump drive is your ticket to inte"
+},
+{
+"file": "repair_droid",
+ "categoryname": "upgrades/Repair_Systems",
+ "price": "30000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/repair_droid.png@A collaborating network of subunits that can do in-flight repairs."
+},
+{
+"file": "repair_droid_advanced",
+ "categoryname": "upgrades/Repair_Systems",
+ "price": "90000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/advanced_repair_droid.png@Sturdy enough to do repairs during combat. Smart enough to remember not to wash the main computer."
+},
+{
+"file": "tractor_beam",
+ "categoryname": "upgrades/Weapons/Beam_Arrays_Light",
+ "price": "7500",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/tractor.png@A tractor beam is the key to efficient salvage.  Cargo is usually found after a battle, waiting for collection (EM shielding is integrated into most cargo containers and lifepods to secure sensitive contents from damage).  Items coll"
+},
+{
+"file": "medium_turret_meson",
+ "categoryname": "upgrades/Weapons/Turrets",
+ "price": "22500",
+ "mass": "0.1",
+ "volume": "1", "description": "@upgrades/turret_medium.png@Equipped with two meson guns and a tractor beam.  It turns, it shoots, it slices. No, it does not dice, but it does come with a free fuzzy pair."
+},
+{
+"file": "medium_turret_rear_meson",
+ "categoryname": "upgrades/Weapons/Turrets",
+ "price": "22500",
+ "mass": "0.1",
+ "volume": "1", "description": "@upgrades/turret_rear.png@Equipped with two meson guns and a tractor beam.  It turns, it shoots, it slices. No, it does not dice, but it does come with a free fuzzy pair. Perfect for the back of your ship."
+},
+{
+"file": "medium_turret_bottom_meson",
+ "categoryname": "upgrades/Weapons/Turrets",
+ "price": "22500",
+ "mass": "0.1",
+ "volume": "1", "description": "@upgrades/turret_medium.png@Equipped with two meson guns and a tractor beam.  It turns, it shoots, it slices. No, it does not dice, but it does come with a free fuzzy pair."
+},
+{
+"file": "gun_cooler",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "300000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/gun_cooler.png@Increases refire rate of particle/energy weapons"
+},
+{
+"file": "mult_speed_enhancer",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "240000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/speedenhancer.png@Increases the ships maximum velocity and afterburner output"
+},
+{
+"file": "mult_thrust_enhancer",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "60000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/thrustenhancer.png@Playing out the tolerances on the inertial compensator allows for improved acceleration."
+},
+{
+"file": "mult_shield_regenerator",
+ "categoryname": "upgrades/Miscellaneous",
+ "price": "170000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/shield_regenerator.png@Increases the sheild regeneration rate"
+},
+{
+"file": "iris_mk1",
+ "categoryname": "upgrades/Radar/Basic",
+ "price": "10000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/irismk1.png@Iris Systems has cornered the budget sensor market in Gemini, and their bottom-price sensors have a reputation for starting the careers of young pilots. Unfortunately, their sensors' lack of a working friend-or-foe ID system has a re"
+},
+{
+"file": "iris_mk2",
+ "categoryname": "upgrades/Radar/Basic",
+ "price": "30000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/irismk2.png@Iris Systems has cornered the budget sensor market in Gemini, and their bottom-price sensors have a reputation for starting the careers of young pilots. Unfortunately, their sensors' lack of a working friend-or-foe ID system has a re"
+},
+{
+"file": "iris_mk3",
+ "categoryname": "upgrades/Radar/Intermediate",
+ "price": "60000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/irismk3.png@Iris Systems has cornered the budget sensor market in Gemini, and their bottom-price sensors have a reputation for starting the careers of young pilots. Unfortunately, their sensors' lack of a working friend-or-foe ID system has a re"
+},
+{
+"file": "hunter_aw_6",
+ "categoryname": "upgrades/Radar/Basic",
+ "price": "30000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/hunteraw6.png@Hunter AW makes all sorts of bounty hunter equipment, and every last unit is a no-frills masterpiece of function. Hunter's sensors tell bounty hunters exactly what they need to know: who needs killing and who's just collateral dama"
+},
+{
+"file": "hunter_aw_6i",
+ "categoryname": "upgrades/Radar/Intermediate",
+ "price": "50000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/hunteraw6i.png@Hunter AW makes all sorts of bounty hunter equipment, and every last unit is a no-frills masterpiece of function. Hunter's sensors tell bounty hunters exactly what they need to know: who needs killing and who's just collateral dam"
+},
+{
+"file": "hunter_aw_infinity",
+ "categoryname": "upgrades/Radar/Advanced",
+ "price": "80000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/hunterawinfinity.png@Hunter AW makes all sorts of bounty hunter equipment, and every last unit is a no-frills masterpiece of function. Hunter's sensors tell bounty hunters exactly what they need to know: who needs killing and who's just collater"
+},
+{
+"file": "B_and_S_Tripwire",
+ "categoryname": "upgrades/Radar/Intermediate",
+ "price": "40000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/bandstripwire.png@B&S has an excellent reputation as a refurbisher of obsolete military sensor equipment, and while it may be somewhat odious that the best sensors in Gemini are scrounged from rusting Confederation war relics, there's good reaso"
+},
+{
+"file": "B_and_S_EYE",
+ "categoryname": "upgrades/Radar/Advanced",
+ "price": "70000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/bandseye.png@B&S has an excellent reputation as a refurbisher of obsolete military sensor equipment, and while it may be somewhat odious that the best sensors in Gemini are scrounged from rusting Confederation war relics, there's good reasoning "
+},
+{
+"file": "B_and_S_Omni",
+ "categoryname": "upgrades/Radar/Advanced",
+ "price": "100000",
+ "mass": "0.01",
+ "volume": "1", "description": "@upgrades/bandsomni.png@B&S has an excellent reputation as a refurbisher of obsolete military sensor equipment, and while it may be somewhat odious that the best sensors in Gemini are scrounged from rusting Confederation war relics, there's good reasoning"
+}
+]

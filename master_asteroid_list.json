@@ -1,0 +1,10 @@
+[
+    {
+        "file": "small_asteroid0",
+        "categoryname": "Fragments",
+        "price": "0",
+        "mass": "100",
+        "volume": "1000",
+        "description": "@cargo/gems.image@A chunk of asteroid. Can be mined for ore if further shot upon."
+    }
+]
