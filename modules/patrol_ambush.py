@@ -83,7 +83,7 @@ class patrol_ambush (ambush.ambush):
 		return (len(self.patrolpoints)==0)
 	def Execute (self):
 		ambush.ambush.Execute(self)
-                playa=VS.getPlayerX(self.cp)
+		playa=VS.getPlayerX(self.cp)
 		if (playa.isNull()):
 			return
 		if (self.inescapable):
@@ -95,4 +95,4 @@ class patrol_ambush (ambush.ambush):
 				if (self.havelaunched):
 					if (not self.enemy.isNull()):
 						if (self.enemy.getUnitSystemFile()==playa.getUnitSystemFile()):
-        						self.enemy.SetTarget(playa)
+							self.enemy.SetTarget(playa)

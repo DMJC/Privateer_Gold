@@ -1,3 +1,4 @@
+from functools import reduce  # PGG port: reduce is not a builtin in Python 3
 import VS
 import GUI
 import custom

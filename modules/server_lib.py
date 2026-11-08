@@ -1,5 +1,6 @@
 import VS
 import Director
+import importlib
 import server
 import launch
 import dynamic_mission
@@ -30,8 +31,8 @@ def player_docked_old(self):
 		for i in range(3):
 			ind = vsrandom.randrange(0,len(syses))
 			sys = syses[ind]
-			print 'generating patrol'
-			print sys
+			print('generating patrol')
+			print(sys)
 			dynamic_mission.generatePatrolMission(sys,vsrandom.randrange(4,10))
 	for key in guilds.guilds:
 		guild = guilds.guilds[key]
@@ -40,11 +41,11 @@ def player_docked_old(self):
 
 def player_docked(self):
 	dynamic_mission.CreateMissions()
-	print campaign_lib.getActiveCampaignNodes(-1)
+	print(campaign_lib.getActiveCampaignNodes(-1))
 
 def player_undocked(self):
 	if not self.docked_un:
-		print 'Base for'+self.callsign+'blew up!'
+		print('Base for '+self.callsign+' blew up!')
 		return
 	self.computer_open = False
 	self.repair_bay_computer = None
@@ -132,11 +133,11 @@ def processMessage(player, auth, command, args, id=''):
 		if auth<1:
 			return
 		vsmod=VS
-		reload(__import__('server_lib'))
+		importlib.reload(__import__('server_lib'))
 		vsmod.IOmessage(0,"game","all","The server python script has been reloaded.")
 	elif command=='userlist':
 		cstr = '#44cc44Users on the server:#888800'
-		print len(serverDirector().playerlist)
+		print(len(serverDirector().playerlist))
 		for x in serverDirector().playerlist:
 			#print x
 			#print x.callsign
@@ -159,8 +160,7 @@ def processMessage(player, auth, command, args, id=''):
 		if min<0:
 			processMessage(player,False,"help",[command])
 		else:
-			shiplist=faction_ships.stattableexp.keys()
-			shiplist.sort()
+			shiplist=sorted(faction_ships.stattableexp.keys())
 			for x in shiplist:
 				cnt+=1
 				if cnt>=min and cnt<max:
@@ -183,10 +183,10 @@ def processMessage(player, auth, command, args, id=''):
 			return
 		playerto = serverDirector().getPlayerByCallsign(args[0])
 		if not playerto:
-			print args[0]
+			print(args[0])
 			player.sendMessage("#884400Cannot find player "+args[0])
 			return
-		print args
+		print(args)
 		value=0.0
 		if args[1]=='yes' or args[1]=='1':
 			value=1.0
@@ -250,10 +250,10 @@ def processMessage(player, auth, command, args, id=''):
 			try:
 				int(a)
 				quantity=int(a)
-				print quantity
+				print(quantity)
 			except ValueError:
 				faction=a
-				print faction
+				print(faction)
 		fgname='AI'
 		ainame='default'
 		launch.launch_wave_around_unit(fgname,faction,type,ainame,quantity,2000.0,4000.0,targun)

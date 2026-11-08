@@ -20,7 +20,7 @@ class XGUIRoot:
 		self.templates = {}
 
 	def getTemplate(self,type,name):
-		if type in self.templates and name in sefl.templates[type]:
+		if type in self.templates and name in self.templates[type]:
 			return self.templates[type][name]
 		else:
 			return None
@@ -41,7 +41,7 @@ class XGUIPythonScript:
 		self.code = compile(code,filename,'exec')
 
 	def execute(self,context):
-		exec self.code in context
+		exec(self.code, context)
 		return context
 
 
@@ -65,6 +65,7 @@ class XGUIPythonScriptAPI:
 """                                                                """
 """----------------------------------------------------------------"""
 
-def XGUIInit()
+def XGUIInit():
+	global XGUIRootSingleton
 	XGUIRootSingleton = XGUIRoot()
 

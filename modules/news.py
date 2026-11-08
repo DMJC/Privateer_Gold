@@ -14,24 +14,28 @@ class NotZero:
     def __nonzero__ (self):
         print ('nonzeroing')
         return saveVal(self.str)!=0
+    __bool__ = __nonzero__  # Python 3 truth test
 class IsZero:
     def __init__ (self,str):
         self.str = str
     def __nonzero__ (self):
         print ('nonzeroing')
         return saveVal(self.str)==0
+    __bool__ = __nonzero__  # Python 3 truth test
 class GreaterZero:
     def __init__ (self,str):
         self.str = str
     def __nonzero__ (self):
         print ('nonzeroing')
         return saveVal(self.str)>0
+    __bool__ = __nonzero__  # Python 3 truth test
 class LessZero:
     def __init__ (self,str):
         self.str = str
     def __nonzero__ (self):
         print ('nonzeroing')
         return saveVal(self.str)<0
+    __bool__ = __nonzero__  # Python 3 truth test
 
 
 news =( ('hoffman_blobs',(NotZero('NEVAH_THIS_WILL_NEVER_BE_TRUE_TILL_THE_HOMEBOY_DIES'),),"HOFFMAN'S BLOBS SPOTTED:   A flock of the strange space creatures known as 'Hoffman's Blobs' were observed in the Galileo System, resulting in the sixth sighting of these bizarre interstellar beings since they were first seen by Bruno Hoffman in Barnard's Star 53 years ago. Scientists are now flocking to study the seemingly non-sentient creatures before they leave, attempting to determine how it is that they are able to sustain themselves in the void of space. From previous observations, it appears they travel in flocks of about a dozen units, often varying in size with the largest being as large as a space cruiser, and the smallest only the size of a shuttlecraft. The animals make their way through the cosmos by 'warping' through space in a way that baffles the scientists."),

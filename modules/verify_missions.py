@@ -181,7 +181,7 @@ class System(Argument):
     NAME="System"
 
     def checkValidity(self):
-        v = ( VS.universe.has_key(self.value) )
+        v = ( (self.value in VS.universe) )
         if not v:
             self.warn("System %s does not exist in universe"%self.value)
             return False
@@ -193,7 +193,7 @@ class SystemTuple(Argument):
 
     def checkValidity(self):
         for sys in self.value:
-            v = ( VS.universe.has_key(sys) )
+            v = ( (sys in VS.universe) )
             if not v:
                 self.warn("System %s does not exist in universe"%sys)
                 return False

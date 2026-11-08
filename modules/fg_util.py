@@ -785,7 +785,7 @@ def GetShipsInFG(fgname,faction):
     if (launchnum>count):
         launchnum=count
 
-    nent = (len(ships) - ShipListOffset()) / PerShipDataSize()
+    nent = (len(ships) - ShipListOffset()) // PerShipDataSize()
     retn = [0] * nent
     for i in range(_prob_round(launchnum*(0.7+vsrandom.random()+0.3))):
         which = vsrandom.randrange(count)
