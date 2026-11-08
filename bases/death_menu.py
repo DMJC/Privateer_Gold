@@ -6,7 +6,10 @@ import dj_lib
 dj_lib.disable()
 
 def RestartGame(self,params):
-	VS.loadGame(VS.getCurrentSaveGame())
+	savegame = VS.getCurrentSaveGame()
+	VS.loadGame(savegame)
+	import universe_boot
+	universe_boot.start_unless_saved(savegame)
 
 def QuitGame(self,params):
 	Base.ExitGame()

@@ -11,6 +11,9 @@ import computer_lib
 def StartNewGame(self,params):
 	ShowProgress.activateProgressScreen('loading',3)
 	VS.loadGame(VS.getNewGameSaveName())
+	# The New_Game save does not list the dynamic universe; start it.
+	import universe_boot
+	universe_boot.start_unless_saved(None)
 
 def QuitGame(self,params):
 	Base.ExitGame()
@@ -34,30 +37,40 @@ def enterCredits(self,params):
 	VS.musicStop()
 	VS.musicPlayList(plist_credits)
 
-# Create menu room
-#room_intro = Base.Room ('XXXIntro')
+# In-engine intro movie (movies/introduction.avi).
+#
+# This requires an engine built with FFmpeg support (see README). An engine
+# built without it cannot decode the movie, so the intro room can be turned
+# off in vegastrike.config (section <general>):
+#     <var name="intro_movie" value="false"/>
+intro_movie_enabled = VS.vsConfig("general", "intro_movie", "false").lower() in ("true", "1", "yes")
+
+# Create rooms. When the intro movie is enabled its room is created first,
+# so it is the room initially shown when the base interface loads.
+room_intro = None
+if intro_movie_enabled:
+	room_intro = Base.Room ('XXXIntro')
 room_menu = Base.Room ('XXXMain_Menu')
 guiroom  = GUI.GUIRoom(room_menu)
 
-# Set up intro room
-#class IntroRoom(GUI.GUIMovieRoom):
-#    def onStart(self, video):
-#        Base.SetDJEnabled(0)
-#        GUI.GUIMovieRoom.onStart(self, video)
-#    def onSkip(self, button, params):
-#        global starting_new_game, plist_monologue
-#        IntroRoom.onSkip(self, button, params)
-        #DoStartNewGame(self, params)
-#        starting_new_game = True
-#        VS.musicPlayList(plist_monologue)
-#        Base.SetCurRoom(intro_guiroom.getIndex())
+# Set up intro room. The movie can be skipped with a click, Enter,
+# Escape or Space; when it ends (or is skipped) the main menu is shown.
+class IntroRoom(GUI.GUIMovieRoom):
+	def onStart(self, video):
+		Base.SetDJEnabled(0)
+		VS.musicStop()
+		GUI.GUIMovieRoom.onStart(self, video)
+	def onSkip(self, button, params):
+		GUI.GUIMovieRoom.onSkip(self, button, params)
+		enterMainMenu(self, params)
 
-#Uncomment the following lines to use intro movies
-#introroom = IntroRoom(room_intro,
-#    ( 'intro.avi',
-#      GUI.GUIRect(0, 0, 1, 1, "normalized")),
-#    guiroom)
-#introroom.setAspectRatio(16.0/9.0)
+introroom = None
+if intro_movie_enabled:
+	introroom = IntroRoom(room_intro,
+		( 'introduction.avi',
+		  GUI.GUIRect(0, 0, 1, 1, "normalized")),
+		guiroom)
+	introroom.setAspectRatio(16.0/9.0)
 
 # Create credits room
 credits_guiroom = GUI.GUIRoom(Base.Room('XXXCredits'))
@@ -115,7 +128,9 @@ btn = GUI.GUIButton(guiroom, 'XXXQuit Game','Quit_Game',sprite,sprite_loc,'enabl
 # Draw everything
 GUI.GUIRootSingleton.broadcastMessage('draw',None)
 
-# Base music
-VS.musicStop()
-VS.musicPlayList(plist_menu)
+# Base music. If the intro movie is actually playing, hold off -
+# enterMainMenu starts the menu music when the movie ends or is skipped.
+if introroom is None or introroom.video.spritestate != 1:
+	VS.musicStop()
+	VS.musicPlayList(plist_menu)
 
