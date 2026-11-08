@@ -659,7 +659,7 @@ class GUILineEdit(GUIGroup):
 			Base.EraseObj(self.room.getIndex(),self.index+"_white_hack")
 
 	def keyDown(self,key):
-		print "got key: %i" % key 
+		print("got key: %i" % key)
 		if key == 13 or key == 10: #should be some kind of return
 			self.action(self)
 		elif key == 27: #escape is always 27, isn't it?
@@ -1171,7 +1171,7 @@ class GUISimpleListPicker(GUIElement):
 		
 	@staticmethod
 	def _notifySelectionChange(group,newval,caller):
-		print "New selection: %s" % newval
+		print("New selection: %s" % newval)
 		caller.owner.selection = newval + caller.owner.firstVisible
 		
 	def _radiogroup(self):

@@ -99,10 +99,16 @@ class GUIRoot:
 	def keyEvent(self):
 		eventdata = Base.GetEventData();
 		if self.keyTarget is not None:
-			if eventdata['type'] == 'keyup' and 'keyUp' in dir(self.keyTarget):
-				self.keyTarget.keyUp(eventdata['key'])
-			if eventdata['type'] == 'keydown' and 'keyDown' in dir(self.keyTarget):
-				self.keyTarget.keyDown(eventdata['key'])
+			eventTarget = self.keyTarget
+		else:
+			# fall back to the current room, so rooms (e.g. movie rooms)
+			# can handle keys without an explicitly focused element
+			eventTarget = self.rooms.get(Base.GetCurRoom())
+		if eventTarget is not None:
+			if eventdata['type'] == 'keyup' and hasattr(eventTarget, 'keyUp'):
+				eventTarget.keyUp(eventdata['key'])
+			if eventdata['type'] == 'keydown' and hasattr(eventTarget, 'keyDown'):
+				eventTarget.keyDown(eventdata['key'])
 
 	def registerRoom(self,room):
 		self.rooms[room.getIndex()] = room
@@ -1387,3 +1393,206 @@ class GUISimpleListPicker(GUIElement):
 			self.selection = sel
 		self._recheck()
 	
+
+
+"""----------------------------------------------------------------"""
+"""                                                                """
+""" GUIVideoTexture - a non-interactive looping video image        """
+"""     (ported from upstream Vega Strike Assets-Production)       """
+"""                                                                """
+"""----------------------------------------------------------------"""
+
+class GUIVideoTexture(GUIStaticImage):
+	def __init__(self,room,index,sprite,**kwarg):
+		""" Sprite must be a tuple of the form:     """
+		"""     ( path , location )                 """
+		"""     with 'location' being a GUIRect     """
+
+		GUIStaticImage.__init__(self,room,index,sprite,**kwarg)
+
+		# it does not for this subclass
+		self.redrawPreservesZ=0
+
+	def draw(self):
+		""" Creates the element """
+		if (self.visible == 1) and (self.spritestate==0) and self.spriteIsValid():
+			(x,y,w,h) = self.sprite[1].getSpriteRect()
+			Base.Video(self.room.getIndex(),self.index,self.sprite[0],"",x,y)
+			Base.SetTextureSize(self.room.getIndex(),self.index,w,h)
+			self.spritestate=1
+
+	def redraw(self):
+		""" Sets a new image """
+		if self.spritestate==1:
+			self.undraw()
+			self.draw()
+
+
+"""----------------------------------------------------------------"""
+"""                                                                """
+""" GUIVideoStream - a non-interactive video stream (with audio)   """
+"""     (ported from upstream Vega Strike Assets-Production)       """
+"""                                                                """
+"""----------------------------------------------------------------"""
+
+class GUIVideoStream(GUIStaticImage):
+	def __init__(self,room,index,sprite,**kwarg):
+		""" Sprite must be a tuple of the form:     """
+		"""     ( path , location )                 """
+		"""     with 'location' being a GUIRect     """
+		self.eosHandler = kwarg.pop('eosHandler',None)
+		self.startHandler = kwarg.pop('startHandler',None)
+		self.stopHandler = kwarg.pop('stopHandler',None)
+
+		GUIStaticImage.__init__(self,room,index,sprite,**kwarg)
+
+		# it does not for this subclass
+		self.redrawPreservesZ=0
+
+		self.nextRoom = None
+		self.aspect = None
+
+	def draw(self):
+		""" Creates the element """
+		if (self.visible == 1) and (self.spritestate==0) and self.spriteIsValid():
+			pythoncallback = lambda id,event : (
+				  "# <-- this disables precompiled python objects\n"
+				 +"from GUI import GUIRootSingleton\n"
+				 +"GUIRootSingleton.dispatchMessage(%r,%r,None)\n"
+				 +"GUIRootSingleton.redrawIfNeeded()\n" ) % (id,event)
+
+			(x,y,w,h) = self.sprite[1].getSpriteRect()
+			try:
+				self.spritestate = Base.VideoStream(self.room.getIndex(),self.index,self.sprite[0],x,y,w,h)
+			except:
+				# engine built without video support, or file missing
+				self.spritestate = 0
+			if self.spritestate is None:
+				self.spritestate = 1
+			if self.spritestate:
+				Base.SetVideoCallback(self.room.getIndex(),self.index,pythoncallback(self.id, "eos"))
+				self.setAspectRatio(self.aspect)
+				Base.RunScript(self.room.getIndex(),self.index+"PLAY",pythoncallback(self.id, "play"),0.0)
+			else:
+				# Movies are optional, so don't break - skip (immediate EOS) instead
+				# Enqueue it to happen as soon as the movie screen is shown
+				Base.RunScript(self.room.getIndex(),self.index+"EOS",pythoncallback(self.id, "eos"),0.0)
+
+	def undraw(self):
+		""" Hides the element """
+		self.stopPlaying()
+		GUIStaticImage.undraw(self)
+
+	def redraw(self):
+		""" Sets a new image """
+		if self.spritestate==1:
+			self.undraw()
+			self.draw()
+
+	def stopPlaying(self):
+		if self.spritestate==1:
+			Base.StopVideo(self.room.getIndex(), self.index)
+			if self.stopHandler:
+				self.stopHandler(self)
+
+	def startPlaying(self):
+		if self.spritestate==1:
+			Base.PlayVideo(self.room.getIndex(), self.index)
+			if self.startHandler:
+				self.startHandler(self)
+
+	def setNextRoom(self, nextRoom):
+		self.nextRoom = nextRoom
+
+	def setAspectRatio(self, aspect):
+		self.aspect = aspect
+		if self.spritestate:
+			(x,y,w,h) = self.sprite[1].getSpriteRect()
+			(sx,sy) = GUIRootSingleton.getScreenDimensions()
+			screenAspect = sx * 1.0 / sy
+
+			xf = yf = 1.0
+			if aspect is not None:
+				if screenAspect < aspect:
+					# horizontal bars needed
+					yf = screenAspect / aspect
+				elif aspect < screenAspect:
+					# vertical bars needed
+					xf = aspect / screenAspect
+
+			Base.SetTextureSize(self.room.getIndex(), self.index, w * xf, h * yf)
+
+	def onMessage(self, message, params):
+		if not GUIStaticImage.onMessage(self, message, params):
+			if message == 'eos':
+				self.onEOS(params)
+			elif message == 'play':
+				self.startPlaying()
+			elif message == 'stop':
+				self.stopPlaying()
+			else:
+				return False
+			return True
+		else:
+			return True
+
+	def onEOS(self, params):
+		""" Callback for End-Of-Stream. """
+		if self.eosHandler:
+			self.eosHandler(self, params)
+
+
+"""----------------------------------------------------------------"""
+"""                                                                """
+""" GUIMovieRoom - implements a cutscene movie as a room with just """
+"""     the movie playing, it will transition to another room      """
+"""     when the movie ends, or a "skip" key is pressed, or        """
+"""     the mouse clicked anywhere on the screen                   """
+"""     (ported from upstream Vega Strike Assets-Production)       """
+"""                                                                """
+"""----------------------------------------------------------------"""
+
+class GUIMovieRoom(GUIRoom):
+	def __init__(self, index, moviesprite, nextroom):
+		GUIRoom.__init__(self, index)
+
+		(sx, sy) = GUIRootSingleton.getScreenDimensions()
+		self.aspect = sx * 1.0 / sy
+
+		self.video = GUIVideoStream(self, "movie", moviesprite,
+			eosHandler=self.onSkip,
+			startHandler=self.onStart,
+			stopHandler=self.onStop)
+		self.video.setNextRoom(nextroom)
+		self.video.setAspectRatio(self.aspect)
+
+		self.skipzone = GUIRoomButton(self, nextroom,
+			"XXXskip", "skipmovie",
+			{'*':None},
+			GUIRect(0,0,1,1,"normalized"),
+			clickHandler = self.onSkip )
+
+	def __repr__(self):
+		return "<movie room %r>" % (self.index,)
+
+	def __str__(self):
+		return "MovieRoom %s" % (self.index,)
+
+	def keyDown(self,key):
+		if key in (13, 10, 27, 32): # return, return, escape, space
+			self.skipzone.onClick({})
+
+	def onSkip(self, button, params):
+		self.video.stopPlaying()
+		if self.video.nextRoom:
+			Base.SetCurRoom(self.video.nextRoom.getIndex())
+
+	def onStart(self, video):
+		pass
+
+	def onStop(self, video):
+		pass
+
+	def setAspectRatio(self, ratio):
+		self.aspect = ratio
+		self.video.setAspectRatio(self.aspect)

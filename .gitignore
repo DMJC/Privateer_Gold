@@ -1,0 +1,9 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Engine binaries and runtime DLLs are built or downloaded separately (see README)
+/bin/
+
+# Per-user data the engine writes when run with -d.
+/.privgold100/

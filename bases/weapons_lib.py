@@ -1908,16 +1908,18 @@ class RepairBayComputerGeneric:
 			elif type == "missile" or type == "torpedo":
 				# selling a missile/torpedo
 				try:
-					# there is no way to give a quantity to removeWeapon, so just
-					# treat it like select_all is always true
-					select_all = True
+					# PGG port: sell one missile per click. removeWeapon can only empty the whole rack, so empty
+					# it and load the rest back one at a time (every *_ammo upgrade row carries exactly 1).
 					if remove_upgrade(player, item_name, mount_num):
 						#self.mounts['empty'][mount_num] = True
-						if select_all:
-							price = price * quantity
-							quantity = 0
-						else:
-							quantity = quantity - 1
+						for _ in range((quantity or 1) - 1):
+							add_upgrade(player, item_name, mount_num, 0, 0, 0)
+						quantity = 0
+						try:
+							if not player.GetMountInfo(mount_num)['empty']:
+								quantity = int(player.GetMountInfo(mount_num)['ammo'])
+						except:
+							pass
 						player.addCredits(price)
 						# remove one from current quantity
 						if quantity > 0:
@@ -2080,7 +2082,7 @@ class RepairBayComputer(RepairBayComputerGeneric):
 		self.txt_cost     = GUI.GUIStaticText(guiroom,'txt_cost',     '', GUI.GUIRect(24, 167, 99, 10), txt_color)
 		self.txt_credits  = GUI.GUIStaticText(guiroom,'txt_credits',  '', GUI.GUIRect(24, 171, 99, 10), txt_color)
 		self.txt_quantity = GUI.GUIStaticText(guiroom,'txt_quantity', '', GUI.GUIRect(24, 119, 99, 10), txt_color)
-		self.txt_message  = GUI.GUIStaticText(guiroom,'txt_message',  '', GUI.GUIRect(24, 122, 99, 10), txt_warning_color)
+		self.txt_message  = GUI.GUIStaticText(guiroom,'txt_message',  '', GUI.GUIRect(24, 125, 99, 10), txt_warning_color)
 
 		# add the item image
 		self.img_item_rect = GUI.GUIRect(20, 114, 103, 67)
@@ -2335,8 +2337,13 @@ class RepairBayComputer(RepairBayComputerGeneric):
 			elif len(self.sell) > 0:
 				# if there is stuff to sell
 				item_name, undamaged, type, mount_num, quantity = self.sell[self.current_item]
+				rows_before = len(self.sell)
 				def handleSellResponse(args):
 					if args[0]!='success':
+						self.draw(args[1])
+						return
+					if not VS.networked() and len(self.sell) == rows_before:
+						# one missile sold and the rest are still on the rack: stay on this row
 						self.draw(args[1])
 						return
 					if VS.networked():
@@ -2419,7 +2426,8 @@ class RepairBayComputer(RepairBayComputerGeneric):
 # disable mount selection for missiles - too cumbersome
 #						elif len(slots) == 1:
 						else:
-							slots.sort(sort_missiles)
+							import functools   # PGG port: Python 3 sort() takes no comparison function
+							slots.sort(key=functools.cmp_to_key(sort_missiles))
 							mount_num = slots[0]
 							self.buy_selected_mount(item_name, type, mount_num)
 #						else:
@@ -2450,6 +2458,9 @@ class RepairBayComputer(RepairBayComputerGeneric):
 				# if a "basic repair" is needed, just do it
 #				global basic_repair_cost
 				player = VS.getPlayer()
+				# RepairCost() counts damaged integrated systems (thrusters, hull, computer...) plus one;
+				# RepairUpgrade() fixes those for free, so tell the player it happened
+				basic_damage = player.RepairCost() > 1
 				rc = player.RepairUpgrade()
 #				print "::: calling player.RepairUpgrade()"
 #				print rc
@@ -2459,7 +2470,7 @@ class RepairBayComputer(RepairBayComputerGeneric):
 				self.repair = get_upgrade_repair_list(self.sell) #, basic_repair_cost)
 				self.state = "repair"
 				self.current_item = 0
-				self.draw()
+				self.draw(basic_damage and "SHIP SYSTEMS REPAIRED" or None)
 		# else: state is unknown
 
 	def draw(self,message=None):
@@ -2516,7 +2527,7 @@ class RepairBayComputer(RepairBayComputerGeneric):
 
 				self.drawItem(sprite, display_name, price, player.getCredits(), item_name, message, None, mount_num)
 			else:
-				self.drawBlank("NOTHING TO REPAIR")
+				self.drawBlank(message or "NOTHING TO REPAIR")
 
 	def drawItem(self, spr_file, name, cost, credits, item_name, message=None, quantity=None, mount=None):
 		if mount == None:

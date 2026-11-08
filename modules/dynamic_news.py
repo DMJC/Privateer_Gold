@@ -49,7 +49,7 @@ def LookupRealName(oldname,faction):
 class NewsTranslator:
     """Provides functions that handle the translation of a
     news item using a relevant event tuple."""
-    STARDATE_TEXT = "\\\\\\\This story first broadcast on: "
+    STARDATE_TEXT = "\\\\\\\\This story first broadcast on: "
 
     def __init__(self, dynamic_data):
         self.dynamic_data = dynamic_data
@@ -118,7 +118,7 @@ class NewsTranslator:
         self.vars['system'] = syste_
         for i in range(len(self.item)):
             self.item[i] = self.translateWord(self.item[i])
-        return string.join(self.item) + self.STARDATE_TEXT + stardate.formatStarDate(self.vars['dockedat']['faction'],self.vars['stardate']['value'])
+        return ' '.join(self.item) + self.STARDATE_TEXT + stardate.formatStarDate(self.vars['dockedat']['faction'],self.vars['stardate']['value'])
 
     def formatText(self, text, punc=[' ' , '_' , '.'], capitalise=True):
         """Runs a quick formatting algorithm over the
@@ -131,7 +131,7 @@ class NewsTranslator:
                     tex[i] = tex[i][0].capitalize() + tex[i][1:]
                 else:
                     tex[i] = tex[i].capitalize()
-            text = string.join(tex)
+            text = ' '.join(tex)
         return text
 
 class DynamicNewsData:
@@ -399,7 +399,7 @@ class NewsManager:
         """Stores a news story list into the \"dynamic news\"
         key in the save game."""
 #        debug.debug('Dynamic news Event')
-        varlist = string.join([str(vsrandom.randrange(0,4194304))]+varlist,',')
+        varlist = ','.join([str(vsrandom.randrange(0,4194304))]+varlist)
         import Director
         Director.pushSaveString(0,"dynamic_news",varlist)
 

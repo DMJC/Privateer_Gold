@@ -86,6 +86,8 @@ class QuineComputer:
         # add buttons
         self.buttons = {}
         self.mode = ''
+        self.saveGameNameEntryBox = None
+        self.lastEnteredSavegameName = None
 
         if enable_finances:
             hot_loc = GUI.GUIRect(545, 287, 105, 60, "pixel", (800,600))
@@ -147,6 +149,8 @@ class QuineComputer:
         screen_color = GUI.GUIColor(20/255.0, 22/255.0 ,10/255.0)               # first I tried rgb(56 60 24) and rgb(40 44 20); both were too light
         screen_bgcolor = GUI.GUIColor.clear()
         screen_bgcolor_nc = GUI.GUIColor(0.44,0.47,0.17)
+        self.screen_color = screen_color
+        self.screen_bgcolor = screen_bgcolor
 
         # text screen
         self.txt_screen = GUI.GUIStaticText(guiroom, 'txt_screen', self.str_start, screen_loc,
@@ -196,6 +200,7 @@ class QuineComputer:
 
     def reset(self):
         trace(TRACE_DEBUG,"::: QuineComputer.reset()")
+        self.closeSaveNameEntry()
         self.txt_screen.setText( self.str_start )
 
     def change_text(self, button_index):
@@ -228,6 +233,8 @@ class QuineComputer:
                     return
                 else:
                     VS.loadGame(game)
+                    import universe_boot
+                    universe_boot.start_unless_saved(game)
         elif button_index == "btn_save":
             if self.mode != button_index:
                 self.picker_screen.items = [GUI.GUISimpleListPicker.listitem("New Game",NewSaveGame)]+savelist()
@@ -244,7 +251,8 @@ class QuineComputer:
                 self.txt_screen.show()
             elif self.picker_screen.selection is not None:
                 if self.picker_screen.items[self.picker_screen.selection].data is NewSaveGame:
-                    VS.saveGame(makeNewSaveName())
+                    self.openSaveNameEntry()
+                    return
                 else:
                     VS.saveGame(self.picker_screen.items[self.picker_screen.selection].data)
                 self.picker_screen.items = [GUI.GUISimpleListPicker.listitem("New Game",NewSaveGame)]+savelist()
@@ -254,6 +262,54 @@ class QuineComputer:
             self.picker_screen.hide()
             self.txt_screen.hide()
         self.mode = button_index
+
+    def openSaveNameEntry(self):
+        # PGG 1.03: "New Game" asks for a name in a line editor (ENTER saves, ESC cancels); buttons are disabled meanwhile
+        if self.saveGameNameEntryBox is not None:
+            return
+        boxloc = GUI.GUIRect(120,130,200,20,"pixel",(800,600))
+        self.saveGameNameEntryBox = GUI.GUILineEdit(self.saveNameEntryEntered, self.guiroom, "box_save", '', boxloc,
+                                                    self.screen_bgcolor, bgcolor=self.screen_color)
+        for button in self.buttons.values():
+            button.disable()
+            button.redraw()
+        self.lastEnteredSavegameName = None
+        self.txt_screen.setText( 'Type name and press ENTER:' )
+        self.txt_screen.show()
+        self.picker_screen.hide()
+        self.saveGameNameEntryBox.focus(True)
+        self.saveGameNameEntryBox.show()
+        self.guiroom.redraw()
+
+    def closeSaveNameEntry(self):
+        box = self.saveGameNameEntryBox
+        if box is None:
+            return
+        self.saveGameNameEntryBox = None
+        box.focus(False)
+        box.hide()
+        for button in self.buttons.values():
+            button.enable()
+            button.redraw()
+
+    def saveNameEntryEntered(self, textbox):
+        savename = textbox.getText().strip()
+        if savename and not textbox.canceled:
+            if savename in [i.data for i in savelist()] and savename != self.lastEnteredSavegameName:
+                self.lastEnteredSavegameName = savename
+                self.txt_screen.setText( "\n"*7
+                    + "Are you sure you want to overwrite the savegame?\n(%s)" % savename
+                    + "\n"*3
+                    + "Press ENTER again to do it." )
+                self.txt_screen.show()
+                self.guiroom.redraw()
+                return
+            VS.saveGame(savename)
+        self.closeSaveNameEntry()
+        self.txt_screen.hide()
+        self.picker_screen.items = [GUI.GUISimpleListPicker.listitem("New Game",NewSaveGame)]+savelist()
+        self.picker_screen.show()
+        self.guiroom.redraw()
 
     def scroll(self,direction):
         list_screens = set(['btn_load','btn_save'])

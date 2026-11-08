@@ -34,9 +34,13 @@ import Director
 Base.LoadBaseInterface("main_menu")
 #my_obj=NullMission()
 
-from privateer import privateer
-my_obj=privateer(3000,5000,500,3,2,.6,.25,.1,850000,2000)
+# NOTE: do NOT instantiate privateer() here. At menu time there is no player
+# unit, so its loop constructors throw ("NULL Unit used in Python script") and
+# leave a half-initialized mission attached to the Special/Empty placeholder
+# system -> intermittent crash when that system is torn down on new-game load.
+# The gameplay dynamic universe is started separately via DelayLoadMission in
+# bases/main_menu.py StartNewGame (loads after the new-game transition).
 
-	</python>
+</python>
 
 </mission>

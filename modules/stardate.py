@@ -10,17 +10,17 @@ def formatStarDate(fac,stdt):
     """Formats the stardate for news"""
     stdtf=getFacCal(fac,stdt)
     if fac == "confed":
-        return string.join([fillZeros(fac,stdtf[2]),str(stdtf[1]),str(stdtf[0]),formatTime(fac,stdt)])
+        return ' '.join([fillZeros(fac,stdtf[2]),str(stdtf[1]),str(stdtf[0]),formatTime(fac,stdt)])
     else:
-        return string.join([fillZeros(fac,stdtf[2]),str(stdtf[1]),str(stdtf[0]),formatTime(fac,stdt)])
+        return ' '.join([fillZeros(fac,stdtf[2]),str(stdtf[1]),str(stdtf[0]),formatTime(fac,stdt)])
 
 def formatTime(fac,stdt):
     """Formate the stardate time for news"""
     stdtf=getFacCal(fac,stdt)
     if fac == "confed":
-        return string.join([fillZeros(fac,stdtf[3]),fillZeros(fac,stdtf[4]),fillZeros(fac,stdtf[5])],":")
+        return ":".join([fillZeros(fac,stdtf[3]),fillZeros(fac,stdtf[4]),fillZeros(fac,stdtf[5])])
     else:
-        return string.join([fillZeros(fac,stdtf[3]),fillZeros(fac,stdtf[4]),fillZeros(fac,stdtf[5])],":")
+        return ":".join([fillZeros(fac,stdtf[3]),fillZeros(fac,stdtf[4]),fillZeros(fac,stdtf[5])])
 
 def fillZeros(fac,tim):
     """Returns a string with the required number of zeros for each faction"""
@@ -89,7 +89,7 @@ def getMDDHMS(frac,system,year,fac):
 
 def getDateSystem(faction):
     """returns a particlar races standard date system (not including leap years)"""
-    if facDateSystems().has_key(faction):
+    if faction in facDateSystems():
         return facDateSystems()[faction]
     else:
         return facDateSystems()["standard"]

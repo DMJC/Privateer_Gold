@@ -9,19 +9,19 @@
 </console>
 
 <button5>
-<Meshfile file="button.bfxm"   x="0.64" y="0.2"  dx=".11" dy=".05" x_mesh_coord="0.3" y_mesh_coord="0" z_mesh_coord="100.0" z_mesh_coord_delta="1.0" scale="2.8"/>
+<Meshfile file="button.bfxm"   x="0.64" y="0.2"  dx=".11" dy=".05" x_mesh_coord="100" y_mesh_coord="10" z_mesh_coord="100.0" z_mesh_coord_delta="1.0" scale="2.8"/>
 </button5>
 
 <button4>
-<Meshfile file="button3.bfxm"    x="0.64" y="0.1" dx=".11" dy=".05" x_mesh_coord="0.3" y_mesh_coord="-1" z_mesh_coord="100.0" z_mesh_coord_delta="1.0" scale="2.8"/>
+<Meshfile file="button3.bfxm"    x="0.64" y="0.1" dx=".11" dy=".05" x_mesh_coord="100" y_mesh_coord="10" z_mesh_coord="100.0" z_mesh_coord_delta="1.0" scale="2.8"/>
 </button4>
 
 <button3>
-<Meshfile file="button2.bfxm"    x="0.785" y="0.2"  dx=".11" dy=".05" x_mesh_coord="3" y_mesh_coord="-.3" z_mesh_coord="100.0" z_mesh_coord_delta="1.0" scale="2.8"/>
+<Meshfile file="button2.bfxm"    x="0.785" y="0.2"  dx=".11" dy=".05" x_mesh_coord="100" y_mesh_coord="10" z_mesh_coord="100.0" z_mesh_coord_delta="1.0" scale="2.8"/>
 </button3>
 
 <button2>
-<Meshfile file="button4.bfxm"  x="0.785" y="0.1"  dx=".11" dy=".05" x_mesh_coord="3" y_mesh_coord="-1" z_mesh_coord="100.0" z_mesh_coord_delta="1.0" scale="2.8"/>
+<Meshfile file="button4.bfxm"  x="0.785" y="0.1"  dx=".11" dy=".05" x_mesh_coord="100" y_mesh_coord="10" z_mesh_coord="100.0" z_mesh_coord_delta="1.0" scale="2.8"/>
 </button2>
 
 <button1>

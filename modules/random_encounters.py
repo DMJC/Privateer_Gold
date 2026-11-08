@@ -143,7 +143,7 @@ class random_encounters:
                 continue
             num=len(fglist)
 #            print 'Probability numbers: ',num, fg_util.MaxNumFlightgroupsInSystem(cursys)#,numsigs
-            print ('Probability numbers: ',num, fg_util.MaxNumFlightgroupsInSystem(cursys),numsigs)
+            print ('Probability numbers: ',num, fg_util.MaxNumFlightgroupsInSystem(cursys))
             avg=float(num)/float(fg_util.MaxNumFlightgroupsInSystem(cursys))#/float(numsigs)
             fortress_level=0
             if cursys in faction_ships.fortress_systems:
@@ -260,7 +260,12 @@ class random_encounters:
         else:
             self.cur.curquest=0
             un = self.decideMode ()
-        if VS.getPlayerX(self.cur_player) and (self.cur.curmode!=self.cur.lastmode):
+        # PGG port: the modern engine keeps the player's ship in the system while docked, so the zone entry
+        # used to be handled during the base screens - inside launch_near's 10 second start-up guard, or long
+        # before take-off - and launches found empty space. Hold the event until the player is in flight.
+        player = VS.getPlayerX(self.cur_player)
+        in_space = player and player.DockedOrDocking() == 0 and VS.GetGameTime() >= 10
+        if in_space and (self.cur.curmode!=self.cur.lastmode):
             #lastmode=curmode#processed this event don't process again if in critical zone
             self.cur.lastmode=self.cur.curmode
             print ("curmodechange %d" % (self.cur.curmode))
